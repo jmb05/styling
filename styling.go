@@ -2,6 +2,7 @@ package styling
 
 import "fmt"
 
+//constants only for reference
 const BLACK = "\033[0;33m"
 const RED = "\033[0;31m"
 const GREEN = "\033[0;32m"
@@ -133,23 +134,23 @@ func ColorReverse(color string, s string) string {
 }
 
 func ColorBackground(color string, s string) string {
-	return create(0, ColorStringToInt(color) + 10) + s + RESET
+	return create(0, ColorStringToInt(color)+10) + s + RESET
 }
 
 func ColorHighIntensity(color string, s string) string {
-	return create(0, ColorStringToInt(color) + 60) + s + RESET
+	return create(0, ColorStringToInt(color)+60) + s + RESET
 }
 
 func ColorBoldHighIntensity(color string, s string) string {
-	return create(1, ColorStringToInt(color) + 60) + s + RESET
+	return create(1, ColorStringToInt(color)+60) + s + RESET
 }
 
 func ColorBackgroundHighIntensity(color string, s string) string {
-	return create(0, ColorStringToInt(color) + 70) + s + RESET
+	return create(0, ColorStringToInt(color)+70) + s + RESET
 }
 
 func create(style uint8, color uint8) string {
-	return fmt.Sprintf("\033[%d;%dm",style, color)
+	return fmt.Sprintf("\033[%d;%dm", style, color)
 }
 
 func ColorStringToInt(color string) uint8 {
